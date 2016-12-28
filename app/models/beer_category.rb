@@ -6,6 +6,5 @@ class BeerCategory < ActiveRecord::Base
   has_many :beers
 
   validates :name, presence: true
-  # validates :beer_category_id, presence: true
 
 end

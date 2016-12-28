@@ -1,7 +1,5 @@
 class BeersController < ApplicationController
 
-  # before_filter :authenticate_admin
-
   before_action :set_beer, only: [:edit, :update, :destroy]
   before_action :set_beer_category
 
@@ -18,14 +16,11 @@ class BeersController < ApplicationController
     if BeerCategory.all.map(&:name).include?(params[:beer_category_id])
       if @beer.save
         render status: :ok, json: { success: 'Succssfully Created' }
-        # flash[:success] = 'Beer Succssfully Created'
-        # redirect_to action: :index
       else
         render status: :unprocessable_entity, json: { errors: @beer.errors.full_messages.first }
-      #   render action: :new
       end
     else
-      render_404
+      render status: :not_found, json: { errors: 'Result not found' }
     end
   end
 
@@ -36,11 +31,8 @@ class BeersController < ApplicationController
   def update
     if @beer.update_attributes(beer_params)
       render status: :ok, json: { success: 'Succssfully updated' }
-      # flash[:success] = 'Successfully Updated'
-      # redirect_to action: :index
     else
       render status: :unprocessable_entity, json: { errors: @beer.errors.full_messages.first }
-      # render action: :edit
     end
   end
 

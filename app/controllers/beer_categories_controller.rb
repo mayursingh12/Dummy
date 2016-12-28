@@ -12,25 +12,11 @@ class BeerCategoriesController < ApplicationController
 
   def create
     @beer_category = BeerCategory.friendly.new(beer_category_params)
-    # if ['IPA', 'brown_ale', 'pilsner', 'lager', 'lambic', 'hefeweizen'].include?(@beer.name)
-    #   if @beer.save
-    #     flash[:success] = 'Beer Succssfully Created'
-    #     redirect_to action: :index
-    #   else
-    #     render action: :new
-    #   end
-    # else
-    #   render_404
-    # end
     if @beer_category.save
       render status: :ok, json: { success: 'Succssfully Created' }
-      # flash[:success] = 'Beer Succssfully Created'
-      # redirect_to action: :index
     else
       render status: :unprocessable_entity, json: { errors: @beer_category.errors.full_messages.first }
-      # render action: :new
     end
-
 
   end
 
@@ -41,11 +27,8 @@ class BeerCategoriesController < ApplicationController
   def update
     if @beer_category.update_attributes(beer_category_params)
       render status: :ok, json: { success: 'Succssfully updated' }
-      # flash[:success] = 'Successfully Updated'
-      # redirect_to action: :index
     else
       render status: :unprocessable_entity, json: { errors: @beer_category.errors.full_messages.first }
-      # render action: :edit
     end
   end
 
