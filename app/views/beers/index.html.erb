@@ -19,13 +19,18 @@
       <tr class="info">
         <!--<th>Id</th>-->
         <th>Beer</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Pair with</th>
         <th>Action</th>
       </tr>
       <tr>
         <% @beers.each do |beer| %>
           <tr>
-            <!--<td><%#= beer.id %></td>-->
             <td><%= beer.name %></td>
+            <td><%= beer.price %></td>
+            <td><%= beer.description %></td>
+            <td><%= beer.pair_with %></td>
             <td>
               <%= link_to edit_beer_category_beer_path(@beer_category, beer) do %>
                   <i class="fa fa-edit"></i>
