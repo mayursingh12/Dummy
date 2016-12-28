@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-xs-2"></div>
+  <div class="col-xs-8">
+    <div class="text-center"><h2>Beer Category List</h2></div>
+    <ul class="list-inline">
+      <li>
+        <%= link_to 'Add Beer Category', new_beer_category_path, class: 'btn btn-primary' %>
+      </li>
+
+    </ul>
+  </div>
+  <div class="col-xs-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-2"></div>
+  <div class="col-xs-8">
+    <table class="table table-striped">
+      <tr class="info">
+        <th>Id</th>
+        <th>Beer</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <% @beer_categories.each do |beer_category| %>
+          <tr>
+            <td><%= beer_category.id %></td>
+            <td><%= beer_category.name %></td>
+            <td>
+              <%= link_to edit_beer_category_path(beer_category) do %>
+                  <i class="fa fa-edit"></i>
+              <% end %>
+
+              <%= link_to 'check', beer_category_beers_path(beer_category) %>
+
+              <%#= link_to beer_beer_category_path(beer), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' do %>
+                  <!--<i class="fa fa-trash"></i>-->
+              <%# end %>
+
+            </td>
+          </tr>
+      <% end %>
+      </tr>
+    </table>
+  </div>
+  <div class="col-xs-2"></div>
+</div>

@@ -21,3 +21,45 @@
   </div>
   <div class="col-sm-4"></div>
 </div>
+
+
+
+
+
+<span class="abc">Click</span>
+
+<script type="text/javascript" charset="utf-8">
+//    $(".abc").click(function(){
+//
+//        var email = 'mayur.singh@jetsetgo.in'
+//        var password = 'jetsetgo123'
+//
+//        $.post('admin/sign_in', {email: email, password: password})
+//                .done(function(msg){
+//                    alert(msg);
+//                })
+//                .fail(function(xhr, status, error) {
+//                    // error handling
+//                    $(".otp-error").removeClass('hidden')
+//
+//                });
+//    });
+
+
+$(".abc").click(function(){
+
+    var email = 'mayur.singh2@jetsetgo.in'
+    var password = 'jetsetgo123'
+    var name = 'Mayur'
+
+    $.post('admin/sign_up_', {admin: {name: '', email: email, password: password}})
+            .done(function(msg){
+                alert(msg);
+            })
+            .fail(function(xhr, status, error) {
+                // error handling
+                $(".otp-error").removeClass('hidden')
+
+            });
+});
+</script>

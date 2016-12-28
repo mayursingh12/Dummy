@@ -4,7 +4,7 @@
     <div class="text-center"><h2>Beer List</h2></div>
     <ul class="list-inline">
       <li>
-        <%= link_to 'Add Beer', new_beer_path, class: 'btn btn-primary' %>
+        <%= link_to 'Add Beer', new_beer_category_beer_path, class: 'btn btn-primary' %>
       </li>
 
     </ul>
@@ -27,13 +27,13 @@
             <!--<td><%#= beer.id %></td>-->
             <td><%= beer.name %></td>
             <td>
-              <%= link_to edit_beer_path(beer) do %>
+              <%= link_to edit_beer_category_beer_path(@beer_category, beer) do %>
                   <i class="fa fa-edit"></i>
               <% end %>
-              <%= link_to beer_path(beer), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' do %>
-                  <i class="fa fa-trash"></i>
-              <% end %>
-
+              <%#= link_to beer_category_beer_path(beer), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' do %>
+                  <!--<i class="fa fa-trash"></i>-->
+              <%# end %>
+              <%#= link_to 'Beer Categories', beer_beer_categories_path(beer) %>
               <%#= link_to 'Toggle', admin_airport_path(airport), method: :delete, data: { confirm: 'Are you sure?' } %>
             </td>
           </tr>

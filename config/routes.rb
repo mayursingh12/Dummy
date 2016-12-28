@@ -63,6 +63,8 @@ Rails.application.routes.draw do
     post 'sign_up_' => 'welcome#sign_up_'
   end
 
-  resources :beers
+  resources :beer_categories do
+    resources :beers
+  end
 
 end
