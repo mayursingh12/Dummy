@@ -3,9 +3,9 @@
   <div class="col-sm-4">
     <h2>Welcome</h2>
     <% if user_signed_in? and current_user.admin? %>
-        <%= link_to 'login', admin_path, class: 'btn btn-primary' %>
-    <% else %>
         <%= link_to 'Dashboard', admin_dashboard_path, class: 'btn btn-primary' %>
+    <% else %>
+        <%= link_to 'login', admin_path, class: 'btn btn-primary' %>
     <% end %>
     <%= link_to 'Beers', beers_path, class: 'btn btn-primary' %>
   </div>
