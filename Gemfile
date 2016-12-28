@@ -42,11 +42,14 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'pg'
+end
+
 gem 'simple_form'
 
 gem 'devise'
 
-# gem 'mysql2'
 gem 'mysql2', '~> 0.3.18'
 
 gem 'friendly_id', '~> 5.1.0'
