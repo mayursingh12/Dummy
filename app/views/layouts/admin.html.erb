@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dummy | Admin</title>
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<%= render partial: 'admin/shared/header' %>
+<div class="container-fluid">
+  <% if user_signed_in? and current_user.admin? %>
+      <div class="row">
+        <div class="col-sm-2 col-xs-3 toggle_class no-padding" style="display: none">
+          <%#= render partial: 'admin/shared/sidebar' %>
+        </div>
+        <div class="col-sm-12 col-xs-12 right_content_con no-padding">
+          <%= render partial: 'admin/shared/alerts' %>
+          <%= yield %>
+        </div>
+      </div>
+  <%- else %>
+      <%= render partial: 'admin/shared/alerts' %>
+      <%= yield %>
+  <%- end %>
+</div>
+</body>
+</html>

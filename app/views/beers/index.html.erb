@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-xs-2"></div>
+  <div class="col-xs-8">
+    <div class="text-center"><h2>Beer List</h2></div>
+    <ul class="list-inline">
+      <li>
+        <%= link_to 'Add Beer', new_beer_path, class: 'btn btn-primary' %>
+      </li>
+
+    </ul>
+  </div>
+  <div class="col-xs-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-2"></div>
+  <div class="col-xs-8">
+    <table class="table table-striped">
+      <tr class="info">
+        <!--<th>Id</th>-->
+        <th>Beer</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <% @beers.each do |beer| %>
+          <tr>
+            <!--<td><%#= beer.id %></td>-->
+            <td><%= beer.name %></td>
+            <td>
+              <%= link_to edit_beer_path(beer) do %>
+                  <i class="fa fa-edit"></i>
+              <% end %>
+              <%= link_to beer_path(beer), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' do %>
+                  <i class="fa fa-trash"></i>
+              <% end %>
+
+              <%#= link_to 'Toggle', admin_airport_path(airport), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+      <% end %>
+      </tr>
+    </table>
+  </div>
+  <div class="col-xs-2"></div>
+</div>

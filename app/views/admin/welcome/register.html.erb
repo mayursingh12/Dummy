@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-sm-4">
+
+  </div>
+  <div class="col-sm-4">
+    <div class="mfp-dialog clearfix" id="nav-login-dialog">
+      <h3 class="widget-title">Register</h3>
+      <p>Welcome, Register to get Enter</p>
+      <hr />
+      <%= simple_form_for :admin, :url => admin_sign_up__path do |f| %>
+          <div class="form-group">
+            <%= f.input :name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.input :email, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.input :password, class: 'form-control' %>
+          </div>
+          <%= submit_tag 'Submit', class: 'btn btn-primary' %>
+          <%= link_to 'Already registred', admin_path, class: 'btn btn-primary' %>
+      <%- end %>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
