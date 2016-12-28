@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161228130530) do
+ActiveRecord::Schema.define(version: 20161228140847) do
 
   create_table "beer_categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -21,10 +21,13 @@ ActiveRecord::Schema.define(version: 20161228130530) do
 
   create_table "beers", force: :cascade do |t|
     t.string   "name",             limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "slug",             limit: 255
     t.integer  "beer_category_id", limit: 4
+    t.float    "price",            limit: 24
+    t.text     "description",      limit: 65535
+    t.text     "pair_with",        limit: 65535
   end
 
   create_table "users", force: :cascade do |t|

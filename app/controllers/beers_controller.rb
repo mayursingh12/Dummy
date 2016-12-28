@@ -63,7 +63,10 @@ class BeersController < ApplicationController
   end
 
   def beer_params
-    params.require(:beer).permit(:name).merge(beer_category_id: @beer_category.id)
+    params.require(:beer).permit(:name,
+                                 :price,
+                                 :description,
+                                 :pair_with).merge(beer_category_id: @beer_category.id)
   end
 
   # def render_404
