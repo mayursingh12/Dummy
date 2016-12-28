@@ -55,3 +55,13 @@ production:
   database: Dummy_production
   username: Dymmy
   password: abc
+
+
+production:
+  <<: *default
+  adapter: postgresql
+  username: <%= ENV['DUMMY_DATABASE_USERNAME'] %>
+  password: <%= ENV['DUMMY_DATABASE_PASSWORD'] %>
+  database: d78esc7k8p4lsm
+  port: 5432
+  host: ec2-107-20-230-243.compute-1.amazonaws.com
